@@ -12,7 +12,8 @@ body {
   color: white;
   padding: 1rem 0;
 }
-.main-content {
+/* .main-content, */
+.person-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
