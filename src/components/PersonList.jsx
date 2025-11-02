@@ -1,7 +1,6 @@
 import PersonCard from "./PersonCard";
-import employees from "../data/employees";
 
-function PersonList() {
+function PersonList({ employees }) {
   return (
     <div className="person-list">
       {employees.map((person) => (
