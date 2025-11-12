@@ -1,16 +1,36 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PersonList from "./components/PersonList";
 import About from "./pages/About";
 import AddEmployee from "./pages/AddEmployee";
-import employeesData from "./data/employees";
+//import employeesData from "./data/employees";
+import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [employees, setEmployees] = useState(employeesData);
+  const [employees, setEmployees] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/employees")
+      .then((response) => {
+        setEmployees(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching employee data:", error);
+      });
+  }, []);
+
   function handleAddEmployee(newEmployee) {
+    axios
+      .post("http://localhost:3001/employees", newEmployee)
+      .then((response) => {
+        setEmployees([...employees, response.data]);
+      })
+      .catch((error) => {
+        console.error("Error adding person:", error);
+      });
     setEmployees([...employees, newEmployee]);
   }
 
