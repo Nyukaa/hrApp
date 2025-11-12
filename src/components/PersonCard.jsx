@@ -1,4 +1,14 @@
-function PersonCard({ name, title, salary, phone, email, animal, startDate }) {
+function PersonCard({
+  name,
+  title,
+  salary,
+  phone,
+  email,
+  animal,
+  startDate,
+  department,
+  skills,
+}) {
   const start = new Date(startDate);
   const today = new Date();
 
@@ -39,24 +49,34 @@ function PersonCard({ name, title, salary, phone, email, animal, startDate }) {
   return (
     <div className="person-card">
       <h2>{name}</h2>
-      <p>
-        <b>Title:</b> {title}
-      </p>
-      <p>
-        <b>Salary:</b> ${salary}
-      </p>
-      <p>
-        <b>Phone:</b> {phone}
-      </p>
-      <p>
-        <b>Email:</b> {email}
-      </p>
-      <p>
-        <b>Favorite animal:</b> {animal} {getAnimalEmoji(animal)}
-      </p>
-      <p>
-        <b>Years worked:</b> {fullYearsWorked}
-      </p>
+
+      <dl>
+        <dt>Title:</dt>
+        <dd>{title}</dd>
+
+        <dt>Salary:</dt>
+        <dd>${salary}</dd>
+
+        <dt>Phone:</dt>
+        <dd>{phone}</dd>
+
+        <dt>Email:</dt>
+        <dd>{email}</dd>
+
+        <dt>Favorite animal:</dt>
+        <dd>
+          {animal} {getAnimalEmoji(animal)}
+        </dd>
+
+        <dt>Department: </dt>
+        <dd>{department}</dd>
+
+        <dt>Skills: </dt>
+        <dd>{skills}</dd>
+
+        <dt>Years worked:</dt>
+        <dd>{fullYearsWorked}</dd>
+      </dl>
 
       {reminder && monthsWorked > 6 && (
         <p style={{ color: "green", fontWeight: "bold" }}>{reminder}</p>
