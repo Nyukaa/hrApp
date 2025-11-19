@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import PersonList from "./components/PersonList";
 import About from "./pages/About";
 import AddEmployee from "./pages/AddEmployee";
+import SinglePerson from "./components/SinglePerson";
 //import employeesData from "./data/employees";
 import axios from "axios";
 import "./App.css";
@@ -47,6 +48,7 @@ function App() {
               path="/add"
               element={<AddEmployee onAddEmployee={handleAddEmployee} />}
             />
+            <Route path="/person/:id" element={<SinglePerson />} />
           </Routes>
         </main>
 

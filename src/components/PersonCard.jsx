@@ -1,17 +1,20 @@
+import { useNavigate } from "react-router-dom";
 function PersonCard({
+  id,
   name,
   title,
   salary,
   phone,
   email,
   animal,
+  location,
   startDate,
   department,
   skills,
 }) {
   const start = new Date(startDate);
   const today = new Date();
-
+  const navigate = useNavigate();
   const yearsWorked = today.getFullYear() - start.getFullYear();
 
   const hasHadAnniversary =
@@ -67,7 +70,8 @@ function PersonCard({
         <dd>
           {animal} {getAnimalEmoji(animal)}
         </dd>
-
+        <dt>Location: </dt>
+        <dd>{location}</dd>
         <dt>Department: </dt>
         <dd>{department}</dd>
 
@@ -76,6 +80,9 @@ function PersonCard({
 
         <dt>Years worked:</dt>
         <dd>{fullYearsWorked}</dd>
+        <button onClick={() => navigate(`/person/${id}`)}>
+          Look up or edit details
+        </button>
       </dl>
 
       {reminder && monthsWorked > 6 && (
