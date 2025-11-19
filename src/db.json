@@ -1,33 +1,37 @@
 {
   "employees": [
     {
-      "id": 1,
-      "name": "Aino Virtanen",
-      "title": "HR Manager",
-      "salary": 4200,
-      "phone": "040-1234567",
-      "email": "aino.virtanen@example.com",
-      "animal": "Owl",
-      "startDate": "2018-04-01",
+      "name": "Mikko Hämäläinen",
+      "title": "Software Engineer",
+      "email": "fgfg@ssj",
+      "animal": "Fox",
+      "startDate": "2025-09-15",
+      "phone": "040-7654321",
+      "salary": "4210",
       "location": "Helsinki",
       "department": "Human Resources",
-      "skills": ["Recruiting", "Communication", "Employee Relations"]
+      "skills": "Recruiting, Communication, Employee Relations",
+      "id": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mikko Laine",
       "title": "Software Engineer",
       "salary": 5200,
       "phone": "040-7654321",
       "email": "mikko.laine@example.com",
       "animal": "Fox",
-      "startDate": "2025-09-15",
+      "startDate": "2025-11-15",
       "location": "Tampere",
       "department": "IT",
-      "skills": ["JavaScript", "React", "Node.js"]
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Liisa Niemi",
       "title": "Marketing Specialist",
       "salary": 3900,
@@ -37,10 +41,14 @@
       "startDate": "2010-09-01",
       "location": "Espoo",
       "department": "Marketing",
-      "skills": ["SEO", "Content Creation", "Social Media"]
+      "skills": [
+        "SEO",
+        "Content Creation",
+        "Social Media"
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Jari Korhonen",
       "title": "Sales Manager",
       "salary": 4800,
@@ -50,10 +58,14 @@
       "startDate": "2017-03-21",
       "location": "Turku",
       "department": "Sales",
-      "skills": ["Negotiation", "CRM", "Leadership"]
+      "skills": [
+        "Negotiation",
+        "CRM",
+        "Leadership"
+      ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Kaisa Mäkinen",
       "title": "UX Designer",
       "salary": 4500,
@@ -63,7 +75,11 @@
       "startDate": "2021-07-11",
       "location": "Helsinki",
       "department": "Design",
-      "skills": ["UI/UX", "Figma", "User Research"]
+      "skills": [
+        "UI/UX",
+        "Figma",
+        "User Research"
+      ]
     }
   ]
 }
