@@ -27,13 +27,15 @@ function AddEmployee({ onAddEmployee }) {
     e.preventDefault();
 
     const newEmployee = {
-      id: Date.now(),
+      id: Date.now().toString(), // convert to string for consistency and fetch json-server
       ...formData,
       salary: Number(formData.salary),
+      //skills: formData.skills.trim(), or we can use this way
       skills: formData.skills
         .split(",")
         .map((s) => s.trim())
-        .filter((s) => s),
+        .filter((s) => s)
+        .join(", "),
     };
 
     onAddEmployee(newEmployee);
