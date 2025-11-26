@@ -49,6 +49,7 @@
 .submitBtn {
   background-color: #38bdf8;
   color: #fff;
+  align-self: center;
   border: none;
   padding: 0.8rem 1.2rem;
   font-size: 1rem;
