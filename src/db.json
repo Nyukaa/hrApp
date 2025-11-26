@@ -24,11 +24,7 @@
       "startDate": "2025-11-15",
       "location": "Tampere",
       "department": "IT",
-      "skills": [
-        "JavaScript",
-        "React",
-        "Node.js"
-      ]
+      "skills": "JavaScript, React, Node.js"
     },
     {
       "id": "3",
@@ -41,11 +37,7 @@
       "startDate": "2010-09-01",
       "location": "Espoo",
       "department": "Marketing",
-      "skills": [
-        "SEO",
-        "Content Creation",
-        "Social Media"
-      ]
+      "skills": "SEO, Content Creation, Social Media"
     },
     {
       "id": "4",
@@ -58,11 +50,7 @@
       "startDate": "2017-03-21",
       "location": "Turku",
       "department": "Sales",
-      "skills": [
-        "Negotiation",
-        "CRM",
-        "Leadership"
-      ]
+      "skills": "Negotiation, CRM, Leadership"
     },
     {
       "id": "5",
@@ -75,11 +63,37 @@
       "startDate": "2021-07-11",
       "location": "Helsinki",
       "department": "Design",
+      "skills": "UI/UX, Figma, User Research"
+    },
+    {
+      "id": "1763627837740",
+      "name": "Anna",
+      "title": "Junior",
+      "salary": 1234,
+      "phone": "1212",
+      "email": "aaa@ma.ru",
+      "animal": "cat",
+      "startDate": "2025-11-12",
+      "location": "Espoo",
+      "department": "Design",
       "skills": [
-        "UI/UX",
-        "Figma",
-        "User Research"
+        "Negotiation",
+        "CRM",
+        "Leadership"
       ]
+    },
+    {
+      "id": "1763628163418",
+      "name": "Maria",
+      "title": "ss",
+      "salary": 1234,
+      "phone": "1212",
+      "email": "aaa@ma.ru",
+      "animal": "cat",
+      "startDate": "2023-05-20",
+      "location": "Tampere",
+      "department": "Human Resources",
+      "skills": "Recruiting, Communication, Employee Relations"
     }
   ]
 }

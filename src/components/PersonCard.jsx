@@ -57,39 +57,40 @@ function PersonCard({
         <dt>Title:</dt>
         <dd>{title}</dd>
 
-        <dt>Salary:</dt>
+        {/* <dt>Salary:</dt>
         <dd>${salary}</dd>
 
         <dt>Phone:</dt>
         <dd>{phone}</dd>
 
         <dt>Email:</dt>
-        <dd>{email}</dd>
+        <dd>{email}</dd> */}
 
         <dt>Favorite animal:</dt>
         <dd>
-          {animal} {getAnimalEmoji(animal)}
+          {getAnimalEmoji(animal)} {animal}
         </dd>
-        <dt>Location: </dt>
-        <dd>{location}</dd>
+        {/* <dt>Location: </dt>
+        <dd>{location}</dd> */}
         <dt>Department: </dt>
         <dd>{department}</dd>
 
-        <dt>Skills: </dt>
-        <dd>{skills}</dd>
+        {/* <dt>Skills: </dt>
+        <dd>{skills}</dd> */}
 
         <dt>Years worked:</dt>
         <dd>{fullYearsWorked}</dd>
-        <button onClick={() => navigate(`/person/${id}`)}>
-          Look up or edit details
-        </button>
       </dl>
-
+      <button onClick={() => navigate(`/person/${id}`)}>
+        Look up or edit details
+      </button>
       {reminder && monthsWorked > 6 && (
         <p style={{ color: "green", fontWeight: "bold" }}>{reminder}</p>
       )}
       {reminder && monthsWorked <= 6 && (
-        <p style={{ color: "blue", fontWeight: "bold" }}>{reminder}</p>
+        <p style={{ color: "hsl(38, 94%, 45%)", fontWeight: "bold" }}>
+          {reminder}
+        </p>
       )}
     </div>
   );

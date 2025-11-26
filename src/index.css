@@ -26,11 +26,33 @@ body {
   background: white;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  padding: 3.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   max-width: 100%;
 }
 .person-card dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+  margin-top: 1rem;
+}
+
+.person-card dt,
+.person-card dd {
+  text-align: left;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.person-card dt {
+  font-weight: bold;
+}
+
+.person-card dd {
+  color: #555;
+}
+/* .person-card dl {
   display: block;
   grid-template-columns: max-content 1fr;
   gap: 4px 12px;
@@ -43,7 +65,7 @@ body {
 
 .person-card dd {
   margin: 10px;
-}
+} */
 form {
   display: flex;
   flex-direction: column;
@@ -62,11 +84,12 @@ form label {
 form button,
 button {
   margin: 1rem;
-  padding: 0.5rem 1rem;
+  font-family: inherit;
+  padding: 1rem 1rem;
   border: none;
   border-radius: 0.5rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #61dafbaa;
+  color: black;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }

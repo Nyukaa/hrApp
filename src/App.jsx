@@ -8,31 +8,49 @@ import AddEmployee from "./pages/AddEmployee";
 import SinglePerson from "./components/SinglePerson";
 //import employeesData from "./data/employees";
 import axios from "axios";
+import useAxios from "./hooks/useAxios";
+
 import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/employees")
-      .then((response) => {
-        setEmployees(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching employee data:", error);
-      });
-  }, []);
 
+  const API = "http://localhost:3001";
+  const { get, post } = useAxios();
+
+  useEffect(() => {
+    get(`${API}/employees`)
+      .then((res) => setEmployees(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3001/employees")
+  //     .then((response) => {
+  //       setEmployees(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching employee data:", error);
+  //     });
+  // }, []);
+
+  // function handleAddEmployee(newEmployee) {
+  //   axios
+  //     .post("http://localhost:3001/employees", newEmployee)
+  //     .then((response) => {
+  //       setEmployees([...employees, response.data]);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding person:", error);
+  //     });
+  //   setEmployees([...employees, newEmployee]);
+  // }
   function handleAddEmployee(newEmployee) {
-    axios
-      .post("http://localhost:3001/employees", newEmployee)
-      .then((response) => {
-        setEmployees([...employees, response.data]);
+    post(`${API}/employees`, newEmployee)
+      .then((res) => {
+        setEmployees((prev) => [...prev, res.data]);
       })
-      .catch((error) => {
-        console.error("Error adding person:", error);
-      });
-    setEmployees([...employees, newEmployee]);
+      .catch((err) => console.error(err));
   }
 
   return (

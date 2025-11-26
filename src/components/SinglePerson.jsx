@@ -4,9 +4,14 @@ import axios from "axios";
 import "../App.css";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
+import useAxios from "../hooks/useAxios";
 
 const SinglePerson = () => {
   const { id } = useParams();
+  const { get, put } = useAxios();
+
+  const API = "http://localhost:3001";
+
   const navigate = useNavigate();
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -42,45 +47,70 @@ const SinglePerson = () => {
   const toggleEditing = () => {
     setIsEditing(!isEditing);
   };
-  useEffect(() => {
-    const fetchPerson = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await axios.get(
-          `http://localhost:3001/employees/${id}`
-        );
-        setPerson(response.data);
-      } catch (err) {
-        console.error("Error fetching person:", err);
-        setError("Failed to fetch person");
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPerson = async () => {
+  //     setLoading(true);
+  //     setError(null);
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:3001/employees/${id}`
+  //       );
+  //       setPerson(response.data);
+  //     } catch (err) {
+  //       console.error("Error fetching person:", err);
+  //       setError("Failed to fetch person");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchPerson();
+  //   fetchPerson();
+  // }, [id]);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+
+    get(`${API}/employees/${id}`)
+      .then((res) => setPerson(res.data))
+      .catch(() => setError("Failed to fetch person"))
+      .finally(() => setLoading(false));
   }, [id]);
 
+  // const handleSave = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const updatedPerson = {
+  //       ...person, // keep name, title, email, etc.
+  //       ...formData, // replace only edited fields
+  //     };
+
+  //     const response = await axios.put(
+  //       `http://localhost:3001/employees/${id}`,
+  //       updatedPerson
+  //     );
+
+  //     setPerson(response.data);
+  //     setIsEditing(false);
+  //   } catch (err) {
+  //     console.error("Error updating person:", err);
+  //   }
+  // };
   const handleSave = async (e) => {
     e.preventDefault();
 
-    try {
-      const updatedPerson = {
-        ...person, // keep name, title, email, etc.
-        ...formData, // replace only edited fields
-      };
+    const updatedPerson = {
+      ...person,
+      ...formData,
+    };
 
-      const response = await axios.put(
-        `http://localhost:3001/employees/${id}`,
-        updatedPerson
-      );
-
-      setPerson(response.data);
-      setIsEditing(false);
-    } catch (err) {
-      console.error("Error updating person:", err);
-    }
+    put(`${API}/employees/${id}`, updatedPerson)
+      .then((res) => {
+        setPerson(res.data);
+        setIsEditing(false);
+      })
+      .catch((err) => console.error("Error updating person:", err));
   };
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
