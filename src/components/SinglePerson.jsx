@@ -10,8 +10,9 @@ const SinglePerson = () => {
   const { id } = useParams();
   const { get, put } = useAxios();
 
-  const API = "http://localhost:3001";
-
+  // const API = "http://localhost:3001";
+  // const API = "https://hrapp-ymdw.onrender.com";
+  // console.log("API URL:", `${API}/employees/${id}`);
   const navigate = useNavigate();
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -71,7 +72,7 @@ const SinglePerson = () => {
     setLoading(true);
     setError(null);
 
-    get(`${API}/employees/${id}`)
+    get(`/employees/${id}`)
       .then((res) => setPerson(res.data))
       .catch(() => setError("Failed to fetch person"))
       .finally(() => setLoading(false));
@@ -105,7 +106,7 @@ const SinglePerson = () => {
       ...formData,
     };
 
-    put(`${API}/employees/${id}`, updatedPerson)
+    put(`/employees/${id}`, updatedPerson)
       .then((res) => {
         setPerson(res.data);
         setIsEditing(false);

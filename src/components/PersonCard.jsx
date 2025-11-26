@@ -81,7 +81,7 @@ function PersonCard({
         <dt>Years worked:</dt>
         <dd>{fullYearsWorked}</dd>
       </dl>
-      <button onClick={() => navigate(`/person/${id}`)}>
+      <button onClick={() => navigate(`/employee/${id}`)}>
         Look up or edit details
       </button>
       {reminder && monthsWorked > 6 && (

@@ -14,12 +14,12 @@ import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-
-  const API = "http://localhost:3001";
+  // const API = "https://hrapp-ymdw.onrender.com";
+  // const API = "http://localhost:3001";
   const { get, post } = useAxios();
 
   useEffect(() => {
-    get(`${API}/employees`)
+    get(`/employees`)
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -46,7 +46,7 @@ function App() {
   //   setEmployees([...employees, newEmployee]);
   // }
   function handleAddEmployee(newEmployee) {
-    post(`${API}/employees`, newEmployee)
+    post(`/employees`, newEmployee)
       .then((res) => {
         setEmployees((prev) => [...prev, res.data]);
       })
@@ -66,7 +66,7 @@ function App() {
               path="/add"
               element={<AddEmployee onAddEmployee={handleAddEmployee} />}
             />
-            <Route path="/person/:id" element={<SinglePerson />} />
+            <Route path="/employee/:id" element={<SinglePerson />} />
           </Routes>
         </main>
 
