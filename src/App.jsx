@@ -14,7 +14,6 @@ import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  // const API = "https://hrapp-ymdw.onrender.com";
   // const API = "http://localhost:3001";
   const { get, post } = useAxios();
 
@@ -23,28 +22,7 @@ function App() {
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   }, []);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:3001/employees")
-  //     .then((response) => {
-  //       setEmployees(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching employee data:", error);
-  //     });
-  // }, []);
 
-  // function handleAddEmployee(newEmployee) {
-  //   axios
-  //     .post("http://localhost:3001/employees", newEmployee)
-  //     .then((response) => {
-  //       setEmployees([...employees, response.data]);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error adding person:", error);
-  //     });
-  //   setEmployees([...employees, newEmployee]);
-  // }
   function handleAddEmployee(newEmployee) {
     post(`/employees`, newEmployee)
       .then((res) => {

@@ -11,8 +11,7 @@ const SinglePerson = () => {
   const { get, put } = useAxios();
 
   // const API = "http://localhost:3001";
-  // const API = "https://hrapp-ymdw.onrender.com";
-  // console.log("API URL:", `${API}/employees/${id}`);
+
   const navigate = useNavigate();
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -48,25 +47,6 @@ const SinglePerson = () => {
   const toggleEditing = () => {
     setIsEditing(!isEditing);
   };
-  // useEffect(() => {
-  //   const fetchPerson = async () => {
-  //     setLoading(true);
-  //     setError(null);
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:3001/employees/${id}`
-  //       );
-  //       setPerson(response.data);
-  //     } catch (err) {
-  //       console.error("Error fetching person:", err);
-  //       setError("Failed to fetch person");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchPerson();
-  // }, [id]);
 
   useEffect(() => {
     setLoading(true);
@@ -78,26 +58,6 @@ const SinglePerson = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  // const handleSave = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const updatedPerson = {
-  //       ...person, // keep name, title, email, etc.
-  //       ...formData, // replace only edited fields
-  //     };
-
-  //     const response = await axios.put(
-  //       `http://localhost:3001/employees/${id}`,
-  //       updatedPerson
-  //     );
-
-  //     setPerson(response.data);
-  //     setIsEditing(false);
-  //   } catch (err) {
-  //     console.error("Error updating person:", err);
-  //   }
-  // };
   const handleSave = async (e) => {
     e.preventDefault();
 
@@ -196,9 +156,6 @@ const SinglePerson = () => {
             ? person.skills.join(", ")
             : person.skills}
         </dd>
-
-        {/* <dt>Years worked:</dt>
-        <dd>{person.fullYearsWorked}</dd> */}
       </dl>
 
       <button onClick={toggleEditing}>Edit</button>
