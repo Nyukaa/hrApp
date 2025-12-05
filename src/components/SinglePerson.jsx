@@ -5,7 +5,9 @@ import "../App.css";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
-
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
 const SinglePerson = () => {
   const { id } = useParams();
   const { get, put } = useAxios();
@@ -79,9 +81,58 @@ const SinglePerson = () => {
   if (isEditing) {
     return (
       <div className="person-card">
-        <h1>Edit Employee: {id}</h1>
+        <h1>Edit Employee: {person.name}</h1>
+        <form onSubmit={handleSave}>
+          <Grid container spacing={2}>
+            <TextField
+              fullWidth
+              label="Salary"
+              name="salary"
+              type="number"
+              value={formData.salary}
+              onChange={handleChange}
+            />
 
-        <form onSubmit={handleSave} className="edit-form">
+            <TextField
+              fullWidth
+              label="Location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+
+            <TextField
+              fullWidth
+              label="Department"
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+            />
+
+            <TextField
+              fullWidth
+              label="Skills (comma separated)"
+              name="skills"
+              value={formData.skills}
+              onChange={handleChange}
+            />
+
+            <Button
+              variant="contained"
+              fullWidth
+              type="submit"
+              sx={{
+                padding: "0.8rem",
+                borderRadius: "8px",
+                typography: "button",
+              }}
+            >
+              Save
+            </Button>
+          </Grid>
+        </form>
+
+        {/* <form onSubmit={handleSave} className="edit-form">
           <label>
             Salary:
             <input
@@ -91,15 +142,17 @@ const SinglePerson = () => {
               onChange={handleChange}
             />
           </label>
+
           <label>
             Location:
             <input
               name="location"
-              type="text    "
+              type="text"
               value={formData.location}
               onChange={handleChange}
             />
           </label>
+
           <label>
             Department:
             <input
@@ -120,10 +173,25 @@ const SinglePerson = () => {
             />
           </label>
 
-          <button type="submit">Save</button>
-        </form>
-
-        <button onClick={toggleEditing}>Cancel</button>
+          <Button variant="contained" type="submit" className="edit-btn">
+            Save
+          </Button>
+        </form> */}
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#0ea5e9",
+            marginTop: 2,
+            padding: "0.8rem 1.2rem",
+            width: "80%",
+            borderRadius: "8px",
+            ":hover": { backgroundColor: "#38bdf8" },
+            typography: "button", // <-- applies theme.typography.button
+          }}
+          onClick={toggleEditing}
+        >
+          Cancel
+        </Button>
       </div>
     );
   }
@@ -158,8 +226,35 @@ const SinglePerson = () => {
         </dd>
       </dl>
 
-      <button onClick={toggleEditing}>Edit</button>
-      <button onClick={() => navigate(`/`)}>Return to Home page</button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#38bdf8",
+          padding: "0.8rem 1.2rem",
+          width: "60%",
+          borderRadius: "8px",
+          ":hover": { backgroundColor: "#0ea5e9" },
+          typography: "button", // <-- applies theme.typography.button
+        }}
+        onClick={toggleEditing}
+      >
+        Edit
+      </Button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#0ea5e9",
+          marginTop: 2,
+          padding: "0.8rem 1.2rem",
+          width: "60%",
+          borderRadius: "8px",
+          ":hover": { backgroundColor: "#38bdf8" },
+          typography: "button", // <-- applies theme.typography.button
+        }}
+        onClick={() => navigate(`/`)}
+      >
+        Return to Home page
+      </Button>
     </div>
   );
 };

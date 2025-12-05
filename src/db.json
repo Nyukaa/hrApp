@@ -11,7 +11,8 @@
       "location": "Helsinki",
       "department": "Human Resources",
       "skills": "Recruiting, Communication, Employee Relations",
-      "id": "1"
+      "id": "1",
+      "isFavorite": true
     },
     {
       "id": "2",
@@ -24,7 +25,8 @@
       "startDate": "2025-11-15",
       "location": "Tampere",
       "department": "IT",
-      "skills": "JavaScript, React, Node.js"
+      "skills": "JavaScript, React, Node.js",
+      "isFavorite": true
     },
     {
       "id": "3",
@@ -37,7 +39,8 @@
       "startDate": "2010-09-01",
       "location": "Espoo",
       "department": "Marketing",
-      "skills": "SEO, Content Creation, Social Media"
+      "skills": "SEO, Content Creation, Social Media",
+      "isFavorite": false
     },
     {
       "id": "4",
@@ -93,7 +96,21 @@
       "startDate": "2023-05-20",
       "location": "Tampere",
       "department": "Human Resources",
-      "skills": "Recruiting, Communication, Employee Relations"
+      "skills": "Recruiting, Communication, Employee Relations",
+      "isFavorite": true
+    },
+    {
+      "id": "1764964524044",
+      "name": "Aleks",
+      "title": "Mr",
+      "salary": "",
+      "phone": "no thank you",
+      "email": "car",
+      "animal": "bat",
+      "startDate": "0010-12-01",
+      "location": "11",
+      "department": "Nose",
+      "skills": "none"
     }
   ]
 }

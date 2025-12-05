@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { TextField, Button, Box, Typography, Paper } from "@mui/material";
 import styles from "./AddEmployee.module.css";
 
 function AddEmployee({ onAddEmployee }) {
@@ -27,10 +28,9 @@ function AddEmployee({ onAddEmployee }) {
     e.preventDefault();
 
     const newEmployee = {
-      id: Date.now().toString(), // convert to string for consistency and fetch json-server
+      id: Date.now().toString(),
       ...formData,
       salary: Number(formData.salary),
-      //skills: formData.skills.trim(), or we can use this way
       skills: formData.skills
         .split(",")
         .map((s) => s.trim())
@@ -39,34 +39,51 @@ function AddEmployee({ onAddEmployee }) {
     };
 
     onAddEmployee(newEmployee);
-    navigate("/"); // go back to employee list
+    navigate("/");
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Add New Employee</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
+    <Paper elevation={3} className={styles.container}>
+      <Typography variant="h4" className={styles.title}>
+        Add New Employee
+      </Typography>
+
+      <Box component="form" onSubmit={handleSubmit} className={styles.form}>
         {Object.keys(formData).map((key) => (
           <div key={key} className={styles.formGroup}>
             <label className={styles.label}>
               {key.charAt(0).toUpperCase() + key.slice(1)}
             </label>
-            <input
-              type={key === "startDate" ? "date" : "text"}
+
+            <TextField
+              variant="outlined"
               name={key}
+              type={key === "startDate" ? "date" : "text"}
               value={formData[key]}
               onChange={handleChange}
-              className={styles.input}
               required={key !== "skills"}
+              className={styles.input}
+              fullWidth
+              InputLabelProps={key === "startDate" ? { shrink: true } : {}}
             />
           </div>
         ))}
 
-        <button type="submit" className={styles.submitBtn}>
+        <Button
+          variant="contained"
+          type="submit"
+          sx={{
+            backgroundColor: "#38bdf8",
+            padding: "0.8rem 1.2rem",
+            borderRadius: "8px",
+            ":hover": { backgroundColor: "#0ea5e9" },
+            typography: "button", // <-- applies theme.typography.button
+          }}
+        >
           Add Employee
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Box>
+    </Paper>
   );
 }
 

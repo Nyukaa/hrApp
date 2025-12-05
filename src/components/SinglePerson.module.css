@@ -1,4 +1,4 @@
-.container {
+.edit-form {
   max-width: 520px;
   margin: 2rem auto;
   background: #f8fafc;
@@ -6,62 +6,57 @@
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   animation: fadeIn 0.4s ease-in;
-}
 
-.title {
-  text-align: center;
-  color: #0f172a;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.formGroup {
+.edit-form label {
   display: flex;
   flex-direction: column;
-}
-
-.label {
   font-weight: 600;
   color: #334155;
-  margin-bottom: 0.25rem;
-  justify-content: flex-start;
+  font-size: 1rem;
 }
 
-.input {
+.edit-form input {
   padding: 0.6rem 0.8rem;
-  /* border: 1px solid #cbd5e1; */
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s ease;
+  width: 100%;
 }
 
-.input:focus {
+.edit-form input:focus {
   border-color: #38bdf8;
   outline: none;
 }
 
-.submitBtn {
-  background-color: #38bdf8;
+.edit-btn {
+  background-color: #0ea5e9;
   color: #fff;
-  align-self: center;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
   border-radius: 8px;
-  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  width: 100%;
   font-weight: 600;
+  margin-top: 1rem 10px;
   transition: background-color 0.3s ease;
 }
 
-.submitBtn:hover {
-  background-color: #0ea5e9;
+.edit-btn:hover {
+  background-color: #38bdf8;
+}
+
+.cancel-btn {
+  background-color: #94a3b8;
+  color: white;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 @keyframes fadeIn {

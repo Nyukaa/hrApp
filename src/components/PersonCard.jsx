@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 function PersonCard({
   id,
   name,
@@ -81,9 +82,20 @@ function PersonCard({
         <dt>Years worked:</dt>
         <dd>{fullYearsWorked}</dd>
       </dl>
-      <button onClick={() => navigate(`/employee/${id}`)}>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#38bdf8",
+          padding: "0.8rem 1.2rem",
+          width: "100%",
+          borderRadius: "8px",
+          ":hover": { backgroundColor: "#0ea5e9" },
+          typography: "button", // <-- applies theme.typography.button
+        }}
+        onClick={() => navigate(`/employee/${id}`)}
+      >
         Look up or edit details
-      </button>
+      </Button>
       {reminder && monthsWorked > 6 && (
         <p style={{ color: "green", fontWeight: "bold" }}>{reminder}</p>
       )}

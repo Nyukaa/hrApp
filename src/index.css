@@ -15,7 +15,7 @@ body {
 /* .main-content, */
 .person-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
   max-width: 1200px;
@@ -52,20 +52,7 @@ body {
 .person-card dd {
   color: #555;
 }
-/* .person-card dl {
-  display: block;
-  grid-template-columns: max-content 1fr;
-  gap: 4px 12px;
-  margin-top: 0.5rem;
-}
 
-.person-card dt {
-  font-weight: bold;
-}
-
-.person-card dd {
-  margin: 10px;
-} */
 form {
   display: flex;
   flex-direction: column;
@@ -93,6 +80,7 @@ button {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
 @media (max-width: 599px) {
   .person-list {
     gap: 1rem;

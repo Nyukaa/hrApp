@@ -6,6 +6,7 @@ import PersonList from "./components/PersonList";
 import About from "./pages/About";
 import AddEmployee from "./pages/AddEmployee";
 import SinglePerson from "./components/SinglePerson";
+import PersonsPage from "./pages/PersonsPage";
 //import employeesData from "./data/employees";
 import axios from "axios";
 import useAxios from "./hooks/useAxios";
@@ -18,7 +19,7 @@ function App() {
   const { get, post } = useAxios();
 
   useEffect(() => {
-    get(`/employees`)
+    get(`http://localhost:3001/employees`)
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -40,6 +41,7 @@ function App() {
           <Routes>
             <Route path="/" element={<PersonList employees={employees} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/table" element={<PersonsPage />} />
             <Route
               path="/add"
               element={<AddEmployee onAddEmployee={handleAddEmployee} />}
