@@ -5,9 +5,10 @@ import "../App.css";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import { Box, Paper, Typography, Divider, Stack, Button } from "@mui/material";
 const SinglePerson = () => {
   const { id } = useParams();
   const { get, put } = useAxios();
@@ -196,65 +197,106 @@ const SinglePerson = () => {
     );
   }
   return (
-    <div className="person-card">
-      <h2>{person.name}</h2>
-
-      <dl>
-        <dt>Title:</dt>
-        <dd>{person.title}</dd>
-
-        <dt>Salary:</dt>
-        <dd>${person.salary}</dd>
-
-        <dt>Phone:</dt>
-        <dd>{person.phone}</dd>
-
-        <dt>Email:</dt>
-        <dd>{person.email}</dd>
-
-        <dt>Location: </dt>
-        <dd>{person?.location}</dd>
-
-        <dt>Department:</dt>
-        <dd>{person.department}</dd>
-
-        <dt>Skills:</dt>
-        <dd>
-          {Array.isArray(person.skills)
-            ? person.skills.join(", ")
-            : person.skills}
-        </dd>
-      </dl>
-
-      <Button
-        variant="contained"
+    <div>
+      <Paper
+        elevation={3}
         sx={{
-          backgroundColor: "#38bdf8",
-          padding: "0.8rem 1.2rem",
-          width: "60%",
-          borderRadius: "8px",
-          ":hover": { backgroundColor: "#0ea5e9" },
-          typography: "button", // <-- applies theme.typography.button
+          p: 4,
+          maxWidth: 500,
+          mx: "auto",
+          borderRadius: 3,
+          backgroundColor: "white",
         }}
-        onClick={toggleEditing}
       >
-        Edit
-      </Button>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#0ea5e9",
-          marginTop: 2,
-          padding: "0.8rem 1.2rem",
-          width: "60%",
-          borderRadius: "8px",
-          ":hover": { backgroundColor: "#38bdf8" },
-          typography: "button", // <-- applies theme.typography.button
-        }}
-        onClick={() => navigate(`/`)}
-      >
-        Return to Home page
-      </Button>
+        <Typography variant="h4" fontWeight={700} gutterBottom>
+          {person.name}
+        </Typography>
+
+        <Stack spacing={1.2} sx={{ mt: 2 }}>
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Title
+            </Typography>
+            <Typography variant="body1">{person.title}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Salary
+            </Typography>
+            <Typography variant="body1">${person.salary}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Phone
+            </Typography>
+            <Typography variant="body1">{person.phone}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Email
+            </Typography>
+            <Typography variant="body1">{person.email}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Location
+            </Typography>
+            <Typography variant="body1">{person.location}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Department
+            </Typography>
+            <Typography variant="body1">{person.department}</Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="subtitle2" color="text.secondary">
+              Skills
+            </Typography>
+            <Typography variant="body1">
+              {Array.isArray(person.skills)
+                ? person.skills.join(", ")
+                : person.skills}
+            </Typography>
+          </Box>
+        </Stack>
+
+        <Divider sx={{ my: 3 }} />
+
+        <Stack spacing={2}>
+          <Button
+            variant="contained"
+            sx={{
+              py: 1.4,
+              borderRadius: 2,
+              backgroundColor: "#38bdf8",
+              ":hover": { backgroundColor: "#0ea5e9" },
+            }}
+            onClick={toggleEditing}
+          >
+            Edit
+          </Button>
+
+          <Button
+            variant="contained"
+            sx={{
+              py: 1.4,
+              borderRadius: 2,
+              backgroundColor: "#0ea5e9",
+              ":hover": { backgroundColor: "#38bdf8" },
+            }}
+            onClick={() => navigate("/")}
+          >
+            Return to Home Page
+          </Button>
+        </Stack>
+      </Paper>
     </div>
   );
 };
