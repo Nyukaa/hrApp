@@ -7,7 +7,7 @@ import About from "./pages/About";
 import AddEmployee from "./pages/AddEmployee";
 import SinglePerson from "./components/SinglePerson";
 import PersonsPage from "./pages/PersonsPage";
-import Grid from "./components/Grid";
+
 //import employeesData from "./data/employees";
 import axios from "axios";
 import useAxios from "./hooks/useAxios";
@@ -47,7 +47,7 @@ function App() {
               path="/add"
               element={<AddEmployee onAddEmployee={handleAddEmployee} />}
             />
-            <Route path="/grid" element={<Grid />} />
+
             <Route path="/employee/:id" element={<SinglePerson />} />
           </Routes>
         </main>

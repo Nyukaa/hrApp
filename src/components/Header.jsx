@@ -28,7 +28,6 @@ function Header() {
           <Link to="/about">About</Link>
           <Link to="/add">Add Employee</Link>
           <Link to="/table">Table</Link>
-          <Link to="/grid">Grid</Link>
         </Box>
         {/* </Box> */}
       </Toolbar>
