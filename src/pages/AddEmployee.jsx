@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Box, Typography, Paper } from "@mui/material";
 import styles from "./AddEmployee.module.css";
+import usePerson from "../hooks/usePerson";
 
 function AddEmployee({ onAddEmployee }) {
+  const { addPerson } = usePerson();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ function AddEmployee({ onAddEmployee }) {
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const newEmployee = {
@@ -38,7 +40,8 @@ function AddEmployee({ onAddEmployee }) {
         .join(", "),
     };
 
-    onAddEmployee(newEmployee);
+    // onAddEmployee(newEmployee);
+    await addPerson(newEmployee);
     navigate("/");
   }
 

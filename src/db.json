@@ -7,7 +7,7 @@
       "animal": "Fox",
       "startDate": "2025-09-15",
       "phone": "040-7654321",
-      "salary": "4210",
+      "salary": "5400",
       "status": "active",
       "location": "Helsinki",
       "department": "Human Resources",
@@ -116,9 +116,22 @@
       "email": "car",
       "animal": "bat",
       "startDate": "0010-12-01",
-      "location": "11",
-      "department": "Nose",
+      "location": "Espoo",
+      "department": "IT",
       "skills": "none"
+    },
+    {
+      "id": "1766046000843",
+      "name": "Anna",
+      "title": "It",
+      "salary": 1234,
+      "phone": "1212",
+      "email": "aaa@ma.ru",
+      "animal": "cat",
+      "startDate": "2023-10-18",
+      "location": "Tampere",
+      "department": "IT",
+      "skills": ""
     }
   ]
 }
