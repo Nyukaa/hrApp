@@ -2,10 +2,7 @@
 
 A **Junior-friendly HR management application** built with **React + Vite**.  
 The project demonstrates **core React concepts**, clean component structure, API communication, and modern UI practices using **Material UI**.
-Notes:
-
-- tenure is derived from startDate
-- reminders for probation review and 5-year anniversaries are computed client-side
+Notes: tenure is derived from startDate, reminders for probation review and 5-year anniversaries are computed client-side
 
 🌐 **Live demo (Render):**  
 👉 https://hrapp-ymdw.onrender.com/
@@ -143,7 +140,6 @@ Employee fields:
 > This branch exists for learning purposes.
 
 - React Context API
-- `useContext + useReducer`
 - Centralized state:
   - employees
   - loading
