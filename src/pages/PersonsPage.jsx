@@ -7,14 +7,14 @@ export default function PersonsPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/employees")
+      .get("/employees")
       .then((res) => setPersons(res.data))
       .catch((err) => console.error("Failed to load employees", err));
   }, []);
 
   // delete handler
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3001/employees/${id}`).then(() => {
+    axios.delete(`/employees/${id}`).then(() => {
       setPersons(persons.filter((p) => p.id !== id));
     });
   };
@@ -23,7 +23,7 @@ export default function PersonsPage() {
   const handleToggleFavorite = (id) => {
     const person = persons.find((p) => p.id === id);
     axios
-      .patch(`http://localhost:3001/employees/${id}`, {
+      .patch(`/employees/${id}`, {
         isFavorite: !person.isFavorite,
       })
       .then(() => {

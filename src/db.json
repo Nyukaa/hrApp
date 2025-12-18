@@ -119,6 +119,19 @@
       "location": "11",
       "department": "Nose",
       "skills": "none"
+    },
+    {
+      "id": "1766055666709",
+      "name": "Anna",
+      "title": "me",
+      "salary": 1234,
+      "phone": "1212",
+      "email": "aaa@ma.ru",
+      "animal": "cat",
+      "startDate": "2024-05-18",
+      "location": "Tampere",
+      "department": "Design",
+      "skills": ""
     }
   ]
 }

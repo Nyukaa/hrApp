@@ -20,7 +20,7 @@ function App() {
   const { get, post } = useAxios();
 
   useEffect(() => {
-    get(`http://localhost:3001/employees`)
+    get(`/employees`)
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   }, []);

@@ -12,7 +12,7 @@ const EmpDataGrid = () => {
     const fetchEmployees = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:3001/employees");
+        const response = await axios.get("/employees");
         setData(response.data);
       } catch (err) {
         setError(err);
@@ -30,7 +30,7 @@ const EmpDataGrid = () => {
   const handleSave = async (updatedRow) => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/employees/${updatedRow.id}`,
+        `/employees/${updatedRow.id}`,
         updatedRow
       );
       console.log("Row saved:", response.data);
